@@ -1,16 +1,29 @@
-const toggleButton = document.getElementById('toggle-dark-mode');
+// Container banaye
+const container = document.createElement('div');
+container.className = 'container';
 
-// Load saved theme
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark-mode');
-  toggleButton.textContent = '🌞';
-} else {
-  toggleButton.textContent = '🌙';
-}
+// Heading
+const heading = document.createElement('h1');
+heading.textContent = 'Welcome!';
 
-// Toggle theme
+// Paragraph
+const para = document.createElement('p');
+para.textContent = 'This is a simple dark mode toggle example using DOM.';
+
+// Button
+const toggleButton = document.createElement('button');
+toggleButton.textContent = 'Toggle Dark Mode';
+toggleButton.id = 'toggle-dark-mode';
+
+// Button click event
 toggleButton.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark-mode');
-  toggleButton.textContent = isDark ? '🌞' : '🌙';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  document.body.classList.toggle('dark');
 });
+
+// Elements ko container me add karo
+container.appendChild(heading);
+container.appendChild(para);
+container.appendChild(toggleButton);
+
+// Container ko body me add karo
+document.body.appendChild(container);
